@@ -30,7 +30,6 @@ function addPlayers(player1, player2){
 
 function incrementScore(){
     scoreBoard.textContent = "";
-    array = [];
     const p1 = document.createTextNode(`${player1} : ${score1}`);
     const p2 = document.createTextNode(`${player2} : ${score2}`);
 
@@ -65,6 +64,7 @@ function createBlocks() {
 }
 
 function clearBoard(){
+    array = [];
     first.textContent = ""
     second.textContent = ""
     third.textContent = ""
@@ -81,6 +81,11 @@ function chooseSquare(block){
     }
     if (isWin()) {
         alert("You won!")
+    }
+    if (isTie()){
+        alert("It's a tie!")
+        clearBoard();
+        createBlocks();
     }
     
 }
@@ -127,6 +132,14 @@ function isWin(){
         
         }
 
+}
+
+function isTie(){
+    tieArray = array.map((block) => {
+        if (block.textContent != "")
+            return true;
+    });
+    return tieArray.every((value) => value);
 }
 
 getNames();
