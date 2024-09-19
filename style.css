@@ -1,0 +1,23 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body, .first, .second, .third {
+    display: flex;
+}
+body {
+    align-items: center;
+    flex-direction: column;
+}
+.board, .block {
+    border: 2px solid black;
+}
+.board {
+    width: 300px;
+    height: 300px;
+}
+.block {
+    width: 100px;
+    height: 100px;
+}
