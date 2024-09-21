@@ -79,10 +79,13 @@ function chooseSquare(block){
         block.textContent = "O";
         isPlayer1 = true;
     }
-    if (isWin()) {
-        alert("You won!")
+    if (XWin()) {
+        alert(`${player1} won!`);
     }
-    if (isTie()){
+    else if (OWin()){
+        alert(`${player2} won!`);
+    }
+    else if (isTie()){
         alert("It's a tie!")
         clearBoard();
         createBlocks();
@@ -90,7 +93,7 @@ function chooseSquare(block){
     
 }
 
-function isWin(){
+function OWin(){
     if (
         array[0].textContent == "O" && array[1].textContent == "O" && array[2].textContent == "O" ||
         array[3].textContent == "O" && array[4].textContent == "O" && array[5].textContent == "O" ||
@@ -109,10 +112,12 @@ function isWin(){
         incrementScore();
         clearBoard();
         createBlocks();
-        return true; 
+        return true;
         
     }
-    else if (array[0].textContent == "X" && array[1].textContent == "X" && array[2].textContent == "X" ||
+}
+function XWin() {
+     if (array[0].textContent == "X" && array[1].textContent == "X" && array[2].textContent == "X" ||
              array[3].textContent == "X" && array[4].textContent == "X" && array[5].textContent == "X" ||
 
              array[6].textContent == "X" && array[7].textContent == "X" && array[8].textContent == "X" ||
